@@ -5,7 +5,7 @@ Description: Creates a CloudFront distribution in front a private bucket
 Parameters:
   BucketName:
     Type: String
-    Default: tg-bucket-123456
+    Default: tg-cloudfrontbucket-123456
 
   CloudFrontOriginAccessIdentity:
     Type: String
@@ -60,7 +60,7 @@ Resources:
               OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
         DefaultCacheBehavior:
           TargetOriginId: !Sub ${BucketName}Origin
-          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
           AllowedMethods:
             - GET
             - HEAD
